@@ -1,0 +1,61 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/public/style/home.css")  
+
+block content
+  section.home
+    .wrapper.ui.container
+      h2.ui.center.aligned.icon.header
+        i.circular.book.icon
+        |  文档列表
+
+      .content
+        table.ui.celled.table.striped 
+          thead
+            tr
+              th 文档名
+              th 作者
+              th 更新时间
+              th.wide.five 操作
+          tbody
+            each doc in docList
+              tr
+                td
+                  .ui.ribbon.red.label=doc.category
+                  = doc.title
+                td
+                  a.ui.image.label.blue 
+                    img(src="/public/image/boy.jpg")
+                    = doc.user.name
+                    .detail= doc.user.detail
+                td= helper.dayjs(doc.update).format('YYYY-MM-DD HH:mm:ss')
+                td
+                  button.button.ui.blue.mini
+                    i.icon.unhide
+                    | 查看
+                  button.button.ui.yellow.mini
+                    i.icon.write
+                    | 修改
+                  button.button.ui.red.mini
+                    i.icon.remove
+                    | 删除
+                  button.button.ui.teal.mini
+                    i.icon.download
+                    | 下载
+          tfoot
+            tr
+              th(colspan="4")
+                .ui.right.floated.pagination.menu
+                  a.icon.item
+                    i.left.chevron.icon
+                  a.item 1
+                  a.item 2
+                  a.item 3
+                  a.item 4
+                  a.icon.item
+                    i.right.chevron.icon
+
+block scripts
+  script
+    | console.log('Hello World')
