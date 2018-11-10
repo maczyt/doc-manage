@@ -1,5 +1,8 @@
 extends ../layout.pug
 
+block third
+  include ../markdown.pug
+
 block title
   title 新建文档
 
@@ -8,13 +11,13 @@ block styles
 
 block content
   .wrapper.container.ui
-    form.ui.form(onsubmit="return false")
+    form.ui.form(onsubmit="return false" methods="POST")
       .field
         h4.ui.horizontal.divider.header 文档名(title)
-        input(type='text', name='first-name', placeholder='First Name')
+        input(type='text', name='title', placeholder='First Name')
       .field
         h4.ui.horizontal.divider.header 文档描述(description)
-        textarea(type='text', name='last-name', placeholder='Last Name' rows="3")
+        textarea(type='text', name='description', placeholder='Last Name' rows="3")
       .field
         h4.ui.horizontal.divider.header 文档功能(features)
         .features
@@ -44,12 +47,12 @@ block content
               textarea(rows="2")
       .field
         h4.ui.horizontal.divider.header 主题说明(main)
-        textarea(type='text', name='last-name', placeholder='Last Name' rows="6")
+        #editMain
       .field
         h4.ui.horizontal.divider.header 底部说明(footer)
-        textarea(type='text', name='last-name', placeholder='Last Name' rows="3")
+        textarea(type='text', name='footer', placeholder='Last Name' rows="3")
       
-      button.floated.right.ui.button.green(type='submit') 提交
+      button.floated.right.ui.button.green.submit(type='submit') 提交
 
 block scripts
   script(src="/public/js/docs/new.js")
