@@ -2,6 +2,6 @@
   "extends": "eslint-config-egg",
   "rules": {
     "eol-last": [0],
-    "linebreak-style": 0,
+    "linebreak-style": 0
   }
 }
