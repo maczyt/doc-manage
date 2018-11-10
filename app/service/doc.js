@@ -23,7 +23,7 @@ class DocService extends Service {
         id: doc.user,
       }).value();
 
-      return Object.assign(doc, {
+      return Object.assign({}, doc, {
         user: user || {},
       });
     });
