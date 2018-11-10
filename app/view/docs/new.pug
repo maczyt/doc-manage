@@ -1,0 +1,55 @@
+extends ../layout.pug
+
+block title
+  title 新建文档
+
+block styles
+  link(rel="stylesheet", href="/public/style/docs/new.css")
+
+block content
+  .wrapper.container.ui
+    form.ui.form(onsubmit="return false")
+      .field
+        h4.ui.horizontal.divider.header 文档名(title)
+        input(type='text', name='first-name', placeholder='First Name')
+      .field
+        h4.ui.horizontal.divider.header 文档描述(description)
+        textarea(type='text', name='last-name', placeholder='Last Name' rows="3")
+      .field
+        h4.ui.horizontal.divider.header 文档功能(features)
+        .features
+          .feature
+            .field
+              label 标题
+              input(type="text")
+            .field
+              label 内容
+              textarea(rows="2")
+          
+          a.ui.primary.button.circular.icon.add-feature(title="新增文档" href="/doc/new")
+            i.icon.add
+          .feature
+            .field
+              label 标题
+              input(type="text")
+            .field
+              label 内容
+              textarea(rows="2")
+          .feature
+            .field
+              label 标题
+              input(type="text")
+            .field
+              label 内容
+              textarea(rows="2")
+      .field
+        h4.ui.horizontal.divider.header 主题说明(main)
+        textarea(type='text', name='last-name', placeholder='Last Name' rows="6")
+      .field
+        h4.ui.horizontal.divider.header 底部说明(footer)
+        textarea(type='text', name='last-name', placeholder='Last Name' rows="3")
+      
+      button.floated.right.ui.button.green(type='submit') 提交
+
+block scripts
+  script(src="/public/js/docs/new.js")

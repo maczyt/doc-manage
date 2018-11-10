@@ -31,7 +31,7 @@ block content
                     .detail= doc.user.detail
                 td= helper.dayjs(doc.update).format('YYYY-MM-DD HH:mm:ss')
                 td
-                  button.button.ui.blue.mini
+                  a.button.ui.blue.mini(href="/doc/" + doc.id)
                     i.icon.unhide
                     | 查看
                   button.button.ui.yellow.mini
@@ -46,6 +46,8 @@ block content
           tfoot
             tr
               th(colspan="4")
+                a.ui.primary.basic.button.circular.icon(title="新增文档" href="/doc/new")
+                  i.icon.add
                 .ui.right.floated.pagination.menu
                   a.icon.item
                     i.left.chevron.icon

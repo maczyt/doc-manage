@@ -1,0 +1,31 @@
+.wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.feature {
+  box-shadow: 0 0 6px rgba(0, 0, 0, .3);
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 92%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.feature:last-child {
+  margin-bottom: 0;
+}
+
+.add-feature {
+  box-sizing: border-box;
+  height: 2.5em;
+  order: 100;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
