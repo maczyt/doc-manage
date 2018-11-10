@@ -13,44 +13,47 @@ block content
   .wrapper.container.ui
     form.ui.form(onsubmit="return false" methods="POST")
       .field
+        h4.ui.horizontal.divider.header 模块名(category)
+        input(type='text', name='category')
+      .field
         h4.ui.horizontal.divider.header 文档名(title)
-        input(type='text', name='title', placeholder='First Name')
+        input(type='text', name='title')
       .field
         h4.ui.horizontal.divider.header 文档描述(description)
-        textarea(type='text', name='description', placeholder='Last Name' rows="3")
+        textarea(type='text', name='description' rows="3")
       .field
         h4.ui.horizontal.divider.header 文档功能(features)
         .features
           .feature
             .field
               label 标题
-              input(type="text")
+              input(type="text" name="feature-title1")
             .field
               label 内容
-              textarea(rows="2")
+              textarea(rows="2" name="feature-content1")
           
           a.ui.primary.button.circular.icon.add-feature(title="新增文档" href="/doc/new")
             i.icon.add
           .feature
             .field
               label 标题
-              input(type="text")
+              input(type="text" name="feature-title2")
             .field
               label 内容
-              textarea(rows="2")
+              textarea(rows="2" name="feature-content2")
           .feature
             .field
               label 标题
-              input(type="text")
+              input(type="text" name="feature-title3")
             .field
               label 内容
-              textarea(rows="2")
+              textarea(rows="2" name="feature-content3")
       .field
         h4.ui.horizontal.divider.header 主题说明(main)
         #editMain
       .field
         h4.ui.horizontal.divider.header 底部说明(footer)
-        textarea(type='text', name='footer', placeholder='Last Name' rows="3")
+        textarea(type='text', name='footer' rows="3")
       
       button.floated.right.ui.button.green.submit(type='submit') 提交
 

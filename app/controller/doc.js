@@ -1,6 +1,8 @@
 'use strict';
 
 const Controller = require('egg').Controller;
+const join = require('path').join;
+const fs = require('fs');
 
 class DocController extends Controller {
   /**
@@ -18,10 +20,28 @@ class DocController extends Controller {
   /**
    * get
    * /doc/new
-   * 新增文档
+   * 新增文档 页面
    */
   async new() {
     await this.ctx.render('docs/new.pug');
+  }
+
+  /**
+   * post
+   * /doc
+   * 新增文档
+   */
+  async create() {
+    const doc = this.ctx.request.body;
+    await this.ctx.service.doc.create(Object.assign({}, doc, {
+      user: 1,
+      create: new Date(),
+      update: new Date(),
+    }));
+    this.ctx.body = {
+      code: 200,
+      msg: '添加成功',
+    };
   }
 
   /**
@@ -48,7 +68,11 @@ class DocController extends Controller {
    * 查看文档
    */
   async show() {
-    //
+    const {
+      id,
+    } = this.ctx.params;
+    this.ctx.type = 'html';
+    this.ctx.body = fs.readFileSync(join(__dirname, '../public/docDist', id, '.vuepress/dist/index.html'));
   }
 }
 

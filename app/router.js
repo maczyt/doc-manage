@@ -10,4 +10,7 @@ module.exports = app => {
   } = app;
   router.get('/', controller.home.index);
   router.resources('doc', '/doc', controller.doc);
+
+  // module router
+  require('./router/vuepress')(app);
 };
