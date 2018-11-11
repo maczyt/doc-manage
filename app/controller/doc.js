@@ -1,8 +1,6 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const join = require('path').join;
-const fs = require('fs');
 
 class DocController extends Controller {
   /**
@@ -64,6 +62,21 @@ class DocController extends Controller {
 
   /**
    * get
+   * /doc/:id/edit
+   * 修改文档 - 页面
+   */
+  async edit() {
+    const {
+      id,
+    } = this.ctx.params;
+    const docData = await this.ctx.service.doc.get(id);
+    await this.ctx.render('docs/edit.pug', {
+      docData,
+    });
+  }
+
+  /**
+   * get
    * /doc/:id
    * 查看文档
    */
@@ -71,8 +84,8 @@ class DocController extends Controller {
     const {
       id,
     } = this.ctx.params;
-    this.ctx.type = 'html';
-    this.ctx.body = fs.readFileSync(join(__dirname, '../public/docDist', id, '.vuepress/dist/index.html'));
+    const url = '/public/docDist/' + id + '/.vuepress/dist/index.html';
+    this.ctx.redirect(url);
   }
 }
 

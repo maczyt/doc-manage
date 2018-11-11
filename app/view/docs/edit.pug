@@ -1,0 +1,51 @@
+extends ../layout.pug
+
+block third
+  include ../markdown.pug
+
+block title
+  title 编辑文档
+
+block styles
+  link(rel="stylesheet", href="/public/style/docs/new.css")
+
+block content
+  .wrapper.container.ui
+    form.ui.form(onsubmit="return false" methods="POST")
+      .field
+        h4.ui.horizontal.divider.header 模块名(category)
+        input(type='text', name='category' value=docData.category)
+      .field
+        h4.ui.horizontal.divider.header 文档名(title)
+        input(type='text', name='title' value=docData.title)
+      .field
+        h4.ui.horizontal.divider.header 文档描述(description)
+        textarea(type='text', name='description' rows="3" value=docData.description)
+      .field
+        h4.ui.horizontal.divider.header 文档功能(features)
+        .features
+          each feature, index in docData.features
+            .feature
+              .field
+                label 标题
+                input(type="text" name="feature-title" + (index + 1) value=feature.title)
+              .field
+                label 内容
+                textarea(rows="2" name="feature-content" + (index + 1) value=feature.content)
+                  | #{feature.content}
+          a.ui.primary.button.circular.icon.add-feature(title="新增文档" href="/doc/new")
+            i.icon.add
+      .field
+        h4.ui.horizontal.divider.header 主题说明(main)
+        #editMain
+      .field
+        h4.ui.horizontal.divider.header 底部说明(footer)
+        textarea(type='text', name='footer' rows="3")
+      
+      button.floated.right.ui.button.green.submit(type='submit') 提交
+
+block scripts
+  script.
+    let mainContent;
+    //- window.mainContent = mainContent = "#{docData.mainContentHtml}";
+  script(src="/public/js/docs/edit.js")

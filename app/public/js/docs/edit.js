@@ -4,8 +4,6 @@
 
 $(function () {
 
-  const csrftoken = Cookies.get('csrfToken');
-
   // init tui.edit
   const editor = new tui.Editor({
     el: document.querySelector('#editMain'),
@@ -16,6 +14,8 @@ $(function () {
 
   // 隐藏WYSIWYG，只显示MARKDOWN
   editor.getUI().getModeSwitch().hide();
+
+  editor.setHtml("#{docData.mainContentHtml}");
 
   $('.submit').click(function () {
 
@@ -45,19 +45,11 @@ $(function () {
       });
     });
     dataObj.mainContent = editor.getMarkdown();
-    dataObj.mainContentHtml = editor.getHtml();
 
-    $.ajax('/doc', {
-      type: 'POST',
-      data: dataObj,
-      beforeSend(xhr) {
-        xhr.setRequestHeader('x-csrf-token', csrftoken);
-      },
-      success() {
-        $(this).removeClass('loading disabled');
-        window.location.href = '/';
-      },
-    });
+    // csrfAjax('/doc/')
 
   });
+
+  window.editor = editor;
+
 });
