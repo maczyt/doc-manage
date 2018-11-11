@@ -4,6 +4,10 @@
 
 $(function () {
 
+  const store = localforage.createInstance({
+    name: 'localNotes',
+  });
+
   // init tui.edit
   const editor = new tui.Editor({
     el: document.querySelector('#editMain'),
@@ -15,7 +19,11 @@ $(function () {
   // 隐藏WYSIWYG，只显示MARKDOWN
   editor.getUI().getModeSwitch().hide();
 
-  editor.setHtml("#{docData.mainContentHtml}");
+  store.getItem(mainContent).then(data => {
+    editor.setMarkdown(data);
+  });
+
+  // editor.setHtml("#{docData.mainContentHtml}");
 
   $('.submit').click(function () {
 

@@ -5,7 +5,9 @@
 $(function () {
 
   const csrftoken = Cookies.get('csrfToken');
-
+  const store = localforage.createInstance({
+    name: 'localNotes',
+  });
   // init tui.edit
   const editor = new tui.Editor({
     el: document.querySelector('#editMain'),
@@ -44,9 +46,11 @@ $(function () {
         content: featureContent[index] || '',
       });
     });
-    dataObj.mainContent = editor.getMarkdown();
-    dataObj.mainContentHtml = editor.getHtml();
 
+    const store_id = cuid();
+    const mainContent = editor.getMarkdown();
+    store.setItem(store_id, mainContent);
+    dataObj.mainContent = store_id;
     $.ajax('/doc', {
       type: 'POST',
       data: dataObj,
