@@ -1,0 +1,29 @@
+extends ../layout.pug
+
+block title
+  title 文章页
+
+block styles
+  link(rel="stylesheet", href="/public/style/chapter/index.css")
+
+block content
+  .wrapper.container.ui
+    
+    a.ui.primary.button.circular.icon.add-chapter(title="创建文章" href="/chapter/new")
+      i.icon.add
+
+    .ui.styled.fluid.accordion
+      each cate, index in category
+        //- if index === 0
+        .title(class="" + (index===0 ? 'active' : ''))
+          i.dropdown.icon
+          | #{cate.name}
+        .content(class="" + (index===0 ? 'active' : ''))
+          .ui.relaxed.divided.list.transition.red
+            each chap in cate.chapter
+              .item
+                i.hand.spock.icon.red
+                .content
+                  a.header #{chap.name}
+block scripts
+  script(src="/public/js/chapter/index.js")

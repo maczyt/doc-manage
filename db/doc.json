@@ -1,105 +1,53 @@
 {
-  "doc": [
-    {
-      "title": "字典管理",
-      "category": "大数据",
-      "update": "2018-11-10 10:10:10",
+  "doc": [{
+    "category": "大数据",
+    "title": "双十一",
+    "description": "双十一牛逼哄哄",
+    "footer": "MIT | maczyt",
+    "features": [{
+        "title": "why",
+        "content": "牛逼"
+      },
+      {
+        "title": "how",
+        "content": "贼溜"
+      },
+      {
+        "title": "what",
+        "content": "还有谁"
+      }
+    ],
+    "mainContent": "cjocqhsku00003b5zndfjc3yk",
+    "user": 1,
+    "create": "2018-11-11T10:26:28.266Z",
+    "update": "2018-11-11T10:26:28.266Z",
+    "id": 1
+  }],
+  "user": [{
+    "id": 1,
+    "name": "周宇涛",
+    "detail": "小辣鸡"
+  }],
+  "category": [{
       "id": 1,
-      "user": 1
+      "docId": 1,
+      "name": "Guide"
     },
     {
-      "category": "人像",
-      "title": "人像一号",
-      "description": "牛就是一个字",
-      "footer": "MIT | maczyt",
-      "mainContent": "# Hello World\n\n``` js\nconsole.log('so cool')\n```",
-      "user": 1,
-      "create": "2018-11-10T12:41:13.884Z",
-      "update": "2018-11-10T12:41:13.884Z",
-      "id": 2
-    },
-    {
-      "category": "天猫",
-      "title": "双十一",
-      "description": "真好",
-      "footer": "MIT | maczyt",
-      "features": [
-        {
-          "title": "why",
-          "content": "真cool"
-        },
-        {
-          "title": "how",
-          "content": "跟着节奏学习它"
-        },
-        {
-          "title": "what",
-          "content": "可以装逼"
-        }
-      ],
-      "mainContent": "# 双十一\n\n``` js\nconsole.log('买的开心');\n```",
-      "user": 1,
-      "create": "2018-11-10T14:32:50.869Z",
-      "update": "2018-11-10T14:32:50.869Z",
-      "id": 3
-    },
-    {
-      "category": "大数据",
-      "title": "增加html",
-      "description": "markdown比较难解析",
-      "footer": "MIT | maczyt",
-      "features": [
-        {
-          "title": "牛逼了",
-          "content": "六六六"
-        },
-        {
-          "title": "真的牛逼",
-          "content": "777"
-        },
-        {
-          "title": "不是假的",
-          "content": "888"
-        }
-      ],
-      "mainContent": "# Cool\n\n``` js\nconsole.log('Hello World');\n```",
-      "mainContentHtml": "<h1>Cool</h1>\n<pre><code data-language=\"js\" class=\"lang-js\">console.log('Hello World');\n</code></pre>\n",
-      "user": 1,
-      "create": "2018-11-11T02:32:24.429Z",
-      "update": "2018-11-11T02:32:24.429Z",
-      "id": 4
-    },
-    {
-      "category": "大数据",
-      "title": "双十一",
-      "description": "双十一牛逼哄哄",
-      "footer": "MIT | maczyt",
-      "features": [
-        {
-          "title": "why",
-          "content": "牛逼"
-        },
-        {
-          "title": "how",
-          "content": "贼溜"
-        },
-        {
-          "title": "what",
-          "content": "还有谁"
-        }
-      ],
-      "mainContent": "cjocqhsku00003b5zndfjc3yk",
-      "user": 1,
-      "create": "2018-11-11T10:26:28.266Z",
-      "update": "2018-11-11T10:26:28.266Z",
-      "id": 5
+      "id": 2,
+      "docId": 1,
+      "name": "Guide2"
+    }, {
+      "id": 3,
+      "docId": 2,
+      "name": "Guide3"
     }
   ],
-  "user": [
-    {
-      "id": 1,
-      "name": "周宇涛",
-      "detail": "小辣鸡"
-    }
-  ]
+  "chapter": [{
+    "id": 1,
+    "docId": 1,
+    "categoryId": 1,
+    "name": "数组遍历",
+    "content": "# Hello 数组"
+  }]
 }

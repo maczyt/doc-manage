@@ -20,7 +20,7 @@ block content
               th 文档名
               th 作者
               th 更新时间
-              th.wide.six 操作
+              th.wide.seven 操作
           tbody
             each doc in docList
               tr
@@ -49,6 +49,9 @@ block content
                   button.ui.purple.button.mini.generate(data-docId=doc.id)
                     i.icon.wizard
                     | 生成
+                  a.button.ui.blue.mini(href="/chapter?docId=" + doc.id)
+                    i.icon.unhide
+                    | 文章页
           tfoot
             tr
               th(colspan="4")

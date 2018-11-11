@@ -23,8 +23,6 @@ $(function () {
     editor.setMarkdown(data);
   });
 
-  // editor.setHtml("#{docData.mainContentHtml}");
-
   $('.submit').click(function () {
 
     $(this).addClass('loading disabled');
@@ -52,6 +50,8 @@ $(function () {
         content: featureContent[index] || '',
       });
     });
+
+
     dataObj.mainContent = editor.getMarkdown();
 
     // csrfAjax('/doc/')
